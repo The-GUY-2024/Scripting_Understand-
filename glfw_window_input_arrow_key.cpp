@@ -3,11 +3,30 @@
 
 
 //This function await for Keyboard input from user 
-void processInput(GLFWwindow *window){
+void CloseWindow(GLFWwindow *window){
     //This function closes the window when the esc Key is press
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
     {
         glfwSetWindowShouldClose(window, true);
+    }
+}
+
+void Arrow_Keys(GLFWwindow *window){
+    
+    if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS){
+        std::cout << " Forward" << std::endl;
+    }
+
+    if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS){
+        std::cout << "Left " << std::endl;
+    }
+
+    if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS){
+        std::cout << " Right" << std::endl;
+    }
+
+    if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS){
+        std::cout << " Backwards" << std::endl;
     }
 }
 
@@ -29,7 +48,9 @@ int main(){
     
     while (!glfwWindowShouldClose(window)){
     //  Get use input 
-        processInput(window);
+
+        CloseWindow(window);
+        Arrow_Keys(window);
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
